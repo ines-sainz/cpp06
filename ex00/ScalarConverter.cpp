@@ -12,9 +12,6 @@
 
 #include "ScalarConverter.hpp"
 
-
-/*PONER STATIC CASSTS PARA TODO*/
-
 void	handleWeird( std::string toConvert, int i )
 {
 	std::cout << "char: impossible\nint: impossible" << std::endl;
@@ -62,19 +59,19 @@ int isFloat( std::string toConvert )
 			return (0);
 		}
 	}
-	if (toConvert[toConvert.length()] != 'f')
+	if (toConvert[toConvert.length() - 1] != 'f')
 		return (0);
 	double	doubleint = strtod(toConvert.c_str(), &end);
-	int		intToConvert = (int)doubleint;
+	int		intToConvert = static_cast<int>(doubleint);
 	if (intToConvert < 32 || intToConvert > 126)
 		std::cout << "char: Non displayable" << std::endl;
 	else
 	{
-		char	charint = (char)intToConvert;
+		char	charint = static_cast<char>(intToConvert);
 		std::cout << "char: '" << charint << "'" << std::endl;
 	}
 	std::cout << "int: " << intToConvert << std::endl;
-	std::cout << "float: " << std::fixed << std::setprecision(1) << doubleint << "f" << std::endl;
+	std::cout << "float: "  << std::fixed << std::setprecision(1) << doubleint << "f" << std::endl;
 	std::cout << "double: " << std::fixed << std::setprecision(1) << doubleint << std::endl;
 	return (1);
 }
@@ -94,12 +91,12 @@ int isDouble( std::string toConvert )
 		}
 	}
 	double	doubleint = strtod(toConvert.c_str(), &end);
-	int		intToConvert = (int)doubleint;
+	int		intToConvert = static_cast<int>(doubleint);
 	if (intToConvert < 32 || intToConvert > 126)
 		std::cout << "char: Non displayable" << std::endl;
 	else
 	{
-		char	charint = (char)intToConvert;
+		char	charint = static_cast<char>(intToConvert);
 		std::cout << "char: '" << charint << "'" << std::endl;
 	}
 	std::cout << "int: " << intToConvert << std::endl;
@@ -117,12 +114,12 @@ int	isInt( std::string toConvert )
 			return (0);
 	}
 	double	doubleint = strtod(toConvert.c_str(), &end);
-	int		intToConvert = (int)doubleint;
+	int		intToConvert = static_cast<int>(doubleint);
 	if (intToConvert < 32 || intToConvert > 126)
 		std::cout << "char: Non displayable" << std::endl;
 	else
 	{
-		char	charint = (char)intToConvert;
+		char	charint = static_cast<char>(intToConvert);
 		std::cout << "char: '" << charint << "'" << std::endl;
 	}
 	std::cout << "int: " << intToConvert << std::endl;
@@ -151,6 +148,8 @@ void ScalarConverter::convert( std::string toConvert )
 	else if (isInt(toConvert))
 		return ;
 	else if (isDouble(toConvert))
+		return ;
+	else if (isFloat(toConvert))
 		return ;
 		
 }
