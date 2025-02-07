@@ -154,6 +154,18 @@ void ScalarConverter::convert( std::string toConvert )
 		
 }
 
+ScalarConverter& ScalarConverter::operator=( const ScalarConverter& before )
+{
+	std::cout << "Copy ScalarConverter Assigment Operator called" << std::endl;
+	return (*this);
+}
+
+ScalarConverter::ScalarConverter( const ScalarConverter& before )
+{
+	std::cout << "Copy ScalarConverter Contructor called" << std::endl;
+	*this = before;
+}
+
 ScalarConverter::~ScalarConverter()
 {
 	std::cout << "Default ScalarConverter Destructor called" << std::endl;

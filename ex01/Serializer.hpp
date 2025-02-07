@@ -29,5 +29,7 @@ class Serializer
 	public:
 		static Data*		deserialize( uintptr_t raw );
 		static uintptr_t	serialize( Data* ptr );
+		Serializer& operator=( const Serializer& before );
+		Serializer( const Serializer& before );
 		~Serializer();
 };

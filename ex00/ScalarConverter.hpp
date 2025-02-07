@@ -23,6 +23,8 @@ class ScalarConverter
 
 	public:
 		static void convert( std::string toConvert );
+		ScalarConverter& operator=( const ScalarConverter& before );
+		ScalarConverter( const ScalarConverter& before );
 		~ScalarConverter();
 };
 

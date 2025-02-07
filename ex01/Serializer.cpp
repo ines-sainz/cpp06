@@ -21,6 +21,17 @@ uintptr_t Serializer::serialize( Data* ptr )
 	return (reinterpret_cast<uintptr_t>(ptr));
 }
 
+Serializer& Serializer::operator=( const Serializer& before )
+{
+	std::cout << "Copy Serializer Assigment operator called" << std::endl;
+	return (*this);
+}
+
+Serializer::Serializer( const Serializer& before )
+{
+	std::cout << "Copy Serializer Constructor called" << std::endl;
+}
+
 Serializer::~Serializer()
 {
 	std::cout << "Default Serializer Constructor called" << std::endl;
