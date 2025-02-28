@@ -53,7 +53,7 @@ int isFloat( std::string toConvert )
 	{
 		if (toConvert[i] == '.')
 			dot++;
-		if ((isdigit(toConvert[i]) == 0 && toConvert[i] != '.')
+		if ((isdigit(toConvert[i]) == 0 && toConvert[i] != '.' && toConvert[i] != '-' && toConvert[i] != '+')
 			|| (toConvert[i] == '.' && dot == 2))
 		{
 			return (0);
@@ -84,7 +84,7 @@ int isDouble( std::string toConvert )
 	{
 		if (toConvert[i] == '.')
 			dot++;
-		if ((isdigit(toConvert[i]) == 0 && toConvert[i] != '.')
+		if ((isdigit(toConvert[i]) == 0 && toConvert[i] != '.' && toConvert[i] != '-' && toConvert[i] != '+')
 			|| (toConvert[i] == '.' && dot == 2))
 		{
 			return (0);
@@ -110,7 +110,7 @@ int	isInt( std::string toConvert )
 	char	*end;
 	for (size_t i = 0; i < toConvert.length(); i++)
 	{
-		if (isdigit(toConvert[i]) == 0)
+		if (isdigit(toConvert[i]) == 0 && toConvert[i] != '-' && toConvert[i] != '+')
 			return (0);
 	}
 	double	doubleint = strtod(toConvert.c_str(), &end);
@@ -157,6 +157,7 @@ void ScalarConverter::convert( std::string toConvert )
 ScalarConverter& ScalarConverter::operator=( const ScalarConverter& before )
 {
 	std::cout << "Copy ScalarConverter Assigment Operator called" << std::endl;
+	(void)before;
 	return (*this);
 }
 
