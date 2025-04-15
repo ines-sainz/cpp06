@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
+#include <stdint.h>
+#include <limits.h>
 
 void	handleWeird( std::string toConvert, int i )
 {
@@ -70,7 +72,10 @@ int isFloat( std::string toConvert )
 		char	charint = static_cast<char>(intToConvert);
 		std::cout << "char: '" << charint << "'" << std::endl;
 	}
-	std::cout << "int: " << intToConvert << std::endl;
+	if (doubleint < INT_MIN || doubleint > INT_MAX)
+		std::cout << "int: impossible" << std::endl;
+	else
+		std::cout << "int: " << intToConvert << std::endl;
 	std::cout << "float: "  << std::fixed << std::setprecision(1) << doubleint << "f" << std::endl;
 	std::cout << "double: " << std::fixed << std::setprecision(1) << doubleint << std::endl;
 	return (1);
@@ -99,7 +104,10 @@ int isDouble( std::string toConvert )
 		char	charint = static_cast<char>(intToConvert);
 		std::cout << "char: '" << charint << "'" << std::endl;
 	}
-	std::cout << "int: " << intToConvert << std::endl;
+	if (doubleint < INT_MIN || doubleint > INT_MAX)
+		std::cout << "int: impossible" << std::endl;
+	else
+		std::cout << "int: " << intToConvert << std::endl;
 	std::cout << "float: " << std::fixed << std::setprecision(1) << doubleint << "f" << std::endl;
 	std::cout << "double: " << std::fixed << std::setprecision(1) << doubleint << std::endl;
 	return (1);
@@ -122,7 +130,10 @@ int	isInt( std::string toConvert )
 		char	charint = static_cast<char>(intToConvert);
 		std::cout << "char: '" << charint << "'" << std::endl;
 	}
-	std::cout << "int: " << intToConvert << std::endl;
+	if (doubleint < INT_MIN || doubleint > INT_MAX)
+		std::cout << "int: impossible" << std::endl;
+	else
+		std::cout << "int: " << intToConvert << std::endl;
 	std::cout << "float: " << doubleint << ".0f" << std::endl;
 	std::cout << "double: " << doubleint << ".0" << std::endl;
 	return (1);

@@ -23,12 +23,14 @@ uintptr_t Serializer::serialize( Data* ptr )
 
 Serializer& Serializer::operator=( const Serializer& before )
 {
+	(void)before;
 	std::cout << "Copy Serializer Assigment operator called" << std::endl;
 	return (*this);
 }
 
 Serializer::Serializer( const Serializer& before )
 {
+	(void)before;
 	std::cout << "Copy Serializer Constructor called" << std::endl;
 }
 
